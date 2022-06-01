@@ -44,6 +44,7 @@ const MyCollection: React.FC = () => {
         wallet={wallet}
         candyShop={candyShopRef.current}
         walletConnectComponent={<WalletMultiButton />}
+        enableCacheNFT={true}
       />
     </DesContainer>
   )
