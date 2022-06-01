@@ -1,5 +1,44 @@
 # WOOFers NFT Marketplace Candy Shop + v2
 
+This repo allows you to sell NFTs through Candy Machine V2 and host your own secondary marketplace with [Candy Shop](https://github.com/LIQNFT/candy-shop).
+
+Supports the following marketplace configurations:
+* Basic SOL marketplace
+* Basic custom SPL token marketplace
+* Marketplace with single NFT view
+* Multi collection marketplace
+* Multi currency marketplace
+
+Forked and modified from Candy Machine V2 repo: https://github.com/Fulgurus/candy-machine-v2-responsive-ui
+
+<img width="1363" alt="Screen Shot 2022-04-16 at 3 23 54 PM" src="https://user-images.githubusercontent.com/89616076/163665962-f8f9fa00-2143-4234-bb35-13955b55220e.png">
+
+**Prod-ready Responsive UI** which can be easily customized in 5mn.
+
+All Candy Machine V2 functionalities are implemented, auto detected and maintained up-to-date:
+
+- public mint (with countdown when date in future)
+- civic support (gatekeeper)
+- whitelist
+- presale true / false
+- end date / end number (endSettings)
+- spl-token to mint
+
+![Candy Machine Preview Image](https://i.ibb.co/h7L0M3G/repo-bg.png)
+
+### Supported Wallets
+
+![Supported Wallets](https://i.ibb.co/DC6Wt66/wallets.png)
+
+For instructions on how to set up a V2 candy machine, please refer to Metaplex's documentation [here](https://docs.metaplex.com/candy-machine-v2/Introduction)
+
+## One-Click Vercel Deployment
+
+One-click solution to clone this project to your GitHub and deploy the prod package on a Vercel.
+Your only task will be to customize your GitHub fork of this project and commit updates.
+Vercel will automatically deploy new prod packages for each new commit.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FLIQNFT%2Fcandy-machine-v2-with-marketplace&env=REACT_APP_SOLANA_NETWORK,REACT_APP_SOLANA_RPC_HOST,REACT_APP_CANDY_SHOP_CREATOR_ADDRESS,REACT_APP_CANDY_SHOP_TREASURY_MINT,REACT_APP_CANDY_SHOP_PROGRAM_ID,REACT_APP_CANDY_MACHINE_ID&envDescription=Please%20refer%20to%20the%20README&envLink=https%3A%2F%2Fgithub.com%2FLIQNFT%2Fcandy-machine-v2-with-marketplace&demo-title=Your%20Solana%20NFT%20Marketplace&demo-description=Host%20your%20own%20secondary%20marketplace%20with%20Candy%20Shop&demo-url=https%3A%2F%2Fgithub.com%2FLIQNFT%2Fcandy-machine-v2-with-marketplace&demo-image=https%3A%2F%2Fuser-images.githubusercontent.com%2F89616076%2F163665962-f8f9fa00-2143-4234-bb35-13955b55220e.png)
 
 ## Getting Set Up
 
@@ -15,6 +54,64 @@
 
 * Follow the instructions [here](https://hackmd.io/@levicook/HJcDneEWF) to install the Metaplex Command Line Utility.
   * Installing the Command Line Package is currently an advanced task that will be simplified eventually.
+
+### Installation
+
+#### 1. Fork the project & clone it. Example:
+
+```
+git clone https://github.com/LIQNFT/candy-machine-v2-with-marketplace/
+```
+
+#### 2. Define your environment variables (.env file)
+
+##### For Candy Shop
+
+Rename the `.env.example` file at the root directory to `.env` and update the following variables in the `.env` file :
+
+```
+REACT_APP_CANDY_SHOP_CREATOR_ADDRESS=__PLACEHOLDER__
+REACT_APP_CANDY_SHOP_TREASURY_MINT=__PLACEHOLDER__
+REACT_APP_CANDY_SHOP_PROGRAM_ID=csa8JpYfKSZajP7JzxnJipUL3qagub1z29hLvp578iN
+```
+You may get these parameters by creating a shop [here](https://candy.liqnft.com/my-shop).
+
+```
+REACT_APP_SOLANA_NETWORK=devnet
+```
+
+This identifies the Solana network you want to connect to. Options are `devnet`, `testnet`, and `mainnet-beta`.
+
+```
+REACT_APP_SOLANA_RPC_HOST=https://api.devnet.solana.com
+```
+
+This identifies the RPC server your web app will access the Solana network through.
+
+##### For Candy Machine V2
+
+**Note: Candy Shop does not need Candy Machine V2 to work. If you are not using Candy Machine V2, you may simply comment out the code.**
+
+```
+REACT_APP_CANDY_MACHINE_ID=__PLACEHOLDER__
+```
+set __PLACEHOLDER__ with the candy machine pubkey you get once you upload & create your candy machine in Metaplex project. You can find back the value from the `.cache/temp.json` file of your Metaplex project. This file is created when you run the `ts-node candy-machine-v2-cli.ts upload ...` command.
+
+If you are using a custom SPL Token to MINT, you have two additional environment parameters to set :
+
+```
+REACT_APP_SPL_TOKEN_TO_MINT_NAME=
+```
+
+Spl-token name to display next the price.
+
+```
+REACT_APP_SPL_TOKEN_TO_MINT_DECIMALS=9
+```
+
+Spl-token decimals were defined during its creation with --decimals parameter. If you didn't use that parameter, then by default your SPL Token got 9 decimals.
+
+More info about it there : https://spl.solana.com/token
 
 #### 3. Build the project and test. Go to the root project directory and type the commands :
 
@@ -98,11 +195,3 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Need Help ?
-
-You can contact me directly on Discord : BloodSpilll#9625
-
-## To thank me with a small SOL tip :]
-
-`58SevvhmaN4SfCop2HkepAWyM5zykr7Afiv91PAAfPqR`
