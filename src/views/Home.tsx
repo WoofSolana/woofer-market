@@ -10,6 +10,7 @@ import woofcoins from '../assets/images/woofcoins.png'
 const CANDY_SHOP_CREATOR_ADDRESS = new PublicKey(process.env.REACT_APP_CANDY_SHOP_CREATOR_ADDRESS!)
 const CANDY_SHOP_TREASURY_MINT = new PublicKey(process.env.REACT_APP_CANDY_SHOP_TREASURY_MINT!)
 const CANDY_SHOP_PROGRAM_ID = new PublicKey(process.env.REACT_APP_CANDY_SHOP_PROGRAM_ID!)
+const RPC_HOST = process.env.REACT_APP_SOLANA_RPC_HOST!
 const NETWORK = process.env.REACT_APP_SOLANA_NETWORK! as Cluster
 
 const DesContainer = styled.div`
@@ -30,14 +31,15 @@ const CustomTokenMarketplace: React.FC = () => {
         currencySymbol: 'WOOF',
         currencyDecimals: 6,
         priceDecimals: 0,
-        volumeDecimals: 0
+        volumeDecimals: 0,
+        mainnetConnectionUrl: RPC_HOST
       }
     )
   )
 
   return (
     <DesContainer>
-      <WoofCoinsImage src={woofcoins} alt="wooofcoins"/>
+      <WoofCoinsImage src={woofcoins} alt="woofcoins"/>
       <Stat
         candyShop={candyShopRef.current}
         title={'WOOFers Marketplace'}
