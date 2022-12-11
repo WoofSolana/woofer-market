@@ -59,13 +59,13 @@ const TopNav: React.FC<TopNavProps> = ({
       </Logo>
       <Menu>
         <li>
-          <a href='https://woofsolana.io'>Website</a>
+          <a href='https://woofsolana.world'>Website</a>
         </li>
         <li>
           <Link to='/'>Marketplace</Link>
         </li>
         <li>
-          <ExtLink href='https://stake.woofsolana.io'>Staking</ExtLink>
+          <ExtLink href='https://staking.woofsolana.world'>Staking</ExtLink>
         </li>
         <li>
           <Link to='/sell'>Sell</Link>
